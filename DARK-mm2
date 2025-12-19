@@ -1140,4 +1140,5 @@ print("\n✅ Script loaded successfully!")
 print("📋 Available weapons:", #ITEMS)
 print("🎯 BoxController ready:", _B ~= nil)
 print("🎄 Christmas Snowflake Farm ready!")
+
 print("🚀 Teleport System ready!")
