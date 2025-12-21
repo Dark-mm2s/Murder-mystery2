@@ -432,8 +432,8 @@ if CoinCollected then
             currentBagAmount = newAmount
             print("[DEBUG] Collected snowflake! Current amount:", currentBagAmount)
             
-            -- Check if bag is full (40 for regular, 50 for premium)
-            local maxCapacity = 40 -- Default capacity
+            -- Check if bag is full (50 for regular, 50 for premium)
+            local maxCapacity = 50 -- Default capacity
             
             -- Check for premium gamepass
             local success, hasGamepass = pcall(function()
