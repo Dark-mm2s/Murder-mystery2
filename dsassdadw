@@ -9,17 +9,12 @@ pcall(function()
 end)
   --// Exunys Anti-Kick (paste at TOP)
 local getgenv, getnamecallmethod, hookmetamethod, hookfunction, newcclosure, checkcaller, lower, gsub, match = getgenv, getnamecallmethod, hookmetamethod, hookfunction, newcclosure, checkcaller, string.lower, string.gsub, string.match
-
 if getgenv().ED_AntiKick then return end
-
 local cloneref = cloneref or function(...) return ... end
 local clonefunction = clonefunction or function(...) return ... end
-
 local Players, LocalPlayer, StarterGui = cloneref(game:GetService("Players")), cloneref(game:GetService("Players").LocalPlayer), cloneref(game:GetService("StarterGui"))
 local SetCore = clonefunction(StarterGui.SetCore)
-
 getgenv().ED_AntiKick = {Enabled = true, SendNotifications = true, CheckCaller = true}
-
 local OldNamecall; OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(...)
 	local self, message = ...
 	local method = getnamecallmethod()
@@ -28,14 +23,12 @@ local OldNamecall; OldNamecall = hookmetamethod(game, "__namecall", newcclosure(
 	end
 	return OldNamecall(...)
 end))
-
 local OldFunction; OldFunction = hookfunction(LocalPlayer.Kick, function(...)
 	if ((ED_AntiKick.CheckCaller and not checkcaller()) or true) and (ED_AntiKick.Enabled) then
 		if pcall(function() game:FindFirstChild(...) end) then return end
 	end
 	return OldFunction(...)
 end)
-
 if getgenv().ED_AntiKick.SendNotifications then
 	StarterGui:SetCore("SendNotification", {Title = "Anti-Kick Loaded", Text = "Blocks client kicks!", Duration = 3})
 end
@@ -63,7 +56,7 @@ WindUI:Popup({
     Content = gradient("Would You Like To Load ", Color3.fromHex("#A855F7"), Color3.fromHex("#E9D5FF")) .. gradient("Dark MM2", Color3.fromHex("#8B5CF6"), Color3.fromHex("#C084FC")),
     Buttons = {
         {
-            Title = gradient("Cancel", Color3.fromHex("#EF4444"), Color3.fromHex("#991B1B")),
+         Title = gradient("Cancel", Color3.fromHex("#EF4444"), Color3.fromHex("#991B1B")),
             Callback = function()
                 -- Script stops, nothing loads
             end,
